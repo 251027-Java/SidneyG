@@ -28,4 +28,4 @@
 - git commit - create a saved state
   -m "message" - adds message to commit
 - git init - initialized a new local repository
-- git log - display the history of commits to the terminal
+- git log - display the history of commits to the terminal!
