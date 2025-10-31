@@ -1,0 +1,13 @@
+LOOP NOTES
+For - counted by an iterator
+While - Continue until False
+Do-While - Run 1, then continue until False
+For Each - use an iterable
+
+
+
+ARRAY NOTES
+array - a contiguous (ordered) collection of similar data type values
+[ _, _, _, _, _ ]
+if we need to modify the length of the array we will need to make a new one (recreate it somewhere else) like on the heap
+we can navigate through indexing

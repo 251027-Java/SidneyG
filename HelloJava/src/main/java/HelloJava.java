@@ -75,7 +75,14 @@ public class HelloJava {
             IO.println("myBool was false!");
         }
 
+        String newString;
+        newString = "Hello Everyone!";
 
+        IO.println(newString);
+        // for (iterator, expression, increment)
+        for (int i = 0; i < newString.length(); i++ ){
+            System.out.println(newString.charAt(i));
+        }
 
     }
 }
