@@ -1,0 +1,54 @@
+Friday 10-31
+How to answer “Tell me about yourself”:
+Success – Accomplishments
+Strength – Character (ability to communicate)
+	Give personable characteristics not just technical skills
+	Have an example (really quick. 2 sentences)
+Situation – Where have you been, what are you doing, what are you looking for
+Job, School
+		Don’t have to name specific places
+	Give 5 year plan non specific
+Looking for position where I can learn from a team and be challenged. Learn new skills. Work with a mentor. (almost too generic)
+	Turn into conversation
+
+This will answer why they should hire you
+
+POJO- (Plain Old Java Object) is a simple Java object that is not tied to any specific framework and is primarily used to represent data
+
+(OOP) Object Oriented Programming
+
+APIE:
+Abstraction- The process of hiding the complex implementation details and showing only the
+essential features of an object to the user
+	Think whatever is inside you don’t know what’s going on. Black Box.
+Polymorphism- In the constructors. Many Forms. Allowing a single action to be performed in
+different ways.
+Inheritance- Using one class to Extend another.
+Animal -> dog. Dog IS-AN animal. Extend animal to create a dog. All properties of animal a dog has all those things.
+Animal -> dog ->Doberman
+	        |----> Shepard
+Animal is base/parent class.
+By default You cannot have two parent classes. You can trick the environment to allow this. You can make different interfaces (has no fields. It’s a way to say this object will have these methods. ) to trick environments.
+Interface does not contain values. Only contains methos signatures. Void main parameter list.
+Encapsulation- Limit the amount of access that anything can interact with a value/variable.
+	Think having a gumball machine. You can see what’s inside, but you can’t touch it.
+
+The L in SOLID
+S-
+O-
+L- Liskov Substitution Principle
+	I can provide the dog as an animal as well as cat
+	in IMammal I can replace mammal with different types of animals
+	As long as whatever im using is that interface I can change the class.
+I-
+D-
+
+
+in abstract file we have to define abstract methods when being extended in another class
+We gain the concrete methods within the abstract file to but it will have a default method that you do not have to redefine
+I will have a mammal that i can fulfill with a dog or cat because the only requirements that they have is to giveBirth
+
+
+
+
+
