@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.Repository.CSVRepository;
+import org.example.Repository.IRepository;
+import org.example.Repository.JSONRepository;
+import org.example.Repository.TextRepository;
+
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
@@ -12,6 +17,7 @@ public class Main {
 
     //Methods
     static void main() {
+        System.out.println("Expense Tracker Starting ");
         List<Expense> expenses = new ArrayList<Expense>();
 
         System.out.println("Creating a test expense:");
@@ -21,6 +27,14 @@ public class Main {
         expenses.add(new Expense(3, new Date() , 10000, "Private Jet"));
 
         System.out.println(expenses);
+
+        // THIS is where we switch our repository from one to another
+//        IRepository repo = new TextRepository();
+//        IRepository repo = new CSVRepository();
+        IRepository repo = new JSONRepository();
+
+        repo.saveExpenses(expenses);
+
 
         System.out.println("Expense Tracker Closing...");
     }
