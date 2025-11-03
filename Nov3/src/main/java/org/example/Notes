@@ -1,0 +1,30 @@
+SDLC - Iterative Methodology
+Agile Methodology
+Planning -> Design -> Implementation -> Testing -> Deployment -> Monitor/Maintain -> Restart Cycle
+    Cycle will end when customer says dont change anything else or project meets end of life
+Agile is designed to be flexible
+    If we find new feature to be added, we can put it through the cycle. Sprint = 1 Cycle.
+MVP - Minimum Valuable Product
+    This can be a small product that we know we are going to expand upon later.
+
+
+Linear Model- Waterfall
+Planning -> Design -> Implementation -> Testing -> Deployment -> Monitor/Maintain
+    You completely finish one before you start the next
+
+
+"As a " ______ (who)                     As a user
+"I want to " ______ (what)      ->       I want to track my responses
+"So that " _______ (why)                 So that I can build/submit an expense report at the end of the week.
+
+- As a user, I want to track my responses soo that I can build/submit an expense report at the end of the week.
+- As a user, I need to include the date, value, and merchant to include on my expense report.
+
+Application/Launcher/Driver
+- App
+Model
+- Expense
+    - id
+    - date
+    - value
+    - merchant
