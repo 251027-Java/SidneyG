@@ -18,6 +18,8 @@ public class Expense {
         this.merchant = merchant;
     }
 
+    public int getId() { return this.id; }
+    public double getValue() { return this.value; }
 
     //Methods
     @Override
@@ -29,10 +31,6 @@ public class Expense {
     public String toCSV (){
         return this.id + ", " + this.date + ", " + this.value + ", " + this.merchant;
     }
-
-//    public String toJSON (){
-//        return "{\"id\":" + this.id + ", \"date\":\"" + this.date + "\", \"value\":" + this.value + ", \"merchant\":\"" + this.merchant + "\"}";
-//    }
 
 
 }
