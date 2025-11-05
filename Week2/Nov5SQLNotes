@@ -1,0 +1,109 @@
+CRUD (create, read, update, delete)
+
+Where can we save data?
+A database - a way to store data
+    consists of tables (rows and columns)
+    store data that is similar in each table
+    we can say two tables are related using keys
+        Primary key - when we have one thing we are story it identifies uniquely
+        Foreign key - connects to primary key in different table to make connection of data
+    SQL has different versions (super simple all the way to super robust can even be more user friendly)
+        all these different flavors are gonna be very similar
+
+SQL
+S - Structures = Tables
+Q - Query
+L - Language
+
+
+Richard Hawkins
+11 Water St
+Vienna, NJ, 07880 ,
+
+Richard Hawkins
+12901 N Whatever Blvd
+Oklahoma City, OK, 73145 ,
+
+Richard Hawkins
+4837 Ruth Rd
+Frisco, TX, 78503
+
+When we work with SQL everything will be in table structure
+So if we want to structure data we may need a table of addresses
+Addresses
+11 Water St Vienna, NJ, 07880
+12901 N Whatever Blvd Oklahoma City, OK, 73145
+4837 Ruth Rd Frisco, TX, 78503
+//This is difficult to read since we would have to deserialize the line of text
+if we break it down it will be easier to read
+
+Addresses
+11    | Water St        | Vienna        | NJ | 07880
+12901 | N Whatever Blvd | Oklahoma City | OK | 73145
+4837  | Ruth Rd         | Frisco        | TX | 78503
+//we would have to keep number and street name separate if we want to find all the houses on one street
+//if we keep them together it would use more processing power if we try to see if it contains "street name"
+separating them would make the data more atomic
+
+11, 7    | Water St        | Vienna        | NJ | 07880
+//adding the comma separator makes the data no longer atomic
+We would have to make separate entries ->
+11   | Water St        | Vienna        | NJ | 07880
+7    | Water St        | Vienna        | NJ | 07880
+
+Candidate key, house number and street, is something we can use to uniquely identify an entry
+11    | Water St        | Vienna        | NJ | 07880
+7     | Water St        | Vienna        | NJ | 07880
+12901 | N Whatever Blvd | Oklahoma City | OK | 73145
+11    | N Whatever Blvd | Oklahoma City | OK | 73145
+4837  | Ruth Rd         | Frisco        | TX | 78503
+
+Candidate Key - anything that COULD be a unique identifier for an entry
+Primary Key - the unique identifier for each entry:
+    must be unique and not null
+Composite Key - a combination of two or more candidate keys
+
+First Normal Form (1NF) - every table has a primary key (and is atomic)
+1NF - The Key
+2NF - The Whole Key
+3NF - Nothing But The Key
+
+| Vienna | NJ | 07880 | wouldn't depend on unique composite key,
+7 Water St,it is violating 2NF where every peice of data depends on the first key
+I would take them out and have them depend on the composite key
+
+3NF - Nothing But The Key - We want to try to get to 3rd Normal Form
+
+
+11    | Water St        | Vienna        | NJ | 07880
+7     | Water St        | Vienna        | NJ | 07880
+12901 | N Whatever Blvd | Oklahoma City | OK | 73145
+11    | N Whatever Blvd | Oklahoma City | OK | 73145
+4837  | Ruth Rd         | Frisco        | TX | 78503
+56    | Some Rd         | Washington    | DC | 20001
+57    | Someother Rd    | Washington    | NJ | 07884
+58    | Something Rd    | Washington    | TX | 73555
+The zip code could depend on state and state when they are a composite key
+
+the tables are the most efficient when we can easily reference the specific data we need
+
+1 | 11    | Water St        | Vienna        | NJ | 07880
+2 | 7     | Water St        | Vienna        | NJ | 07880
+3 | 12901 | N Whatever Blvd | Oklahoma City | OK | 73145
+4 | 11    | N Whatever Blvd | Oklahoma City | OK | 73145
+5 | 4837  | Ruth Rd         | Frisco        | TX | 78503
+6 | 56    | Some Rd         | Washington    | DC | 20001
+7 | 57    | Someother Rd    | Washington    | NJ | 07884
+8 | 58    | Something Rd    | Washington    | TX | 73555
+We can add a new field to be that primary key for us
+Do we depend on the whole key - yes
+Any duplicate data - yes we have the same road twice. same state multiple times
+    This wastes space and can become inefficient
+    Any time we can reduce the duplicates will make our database much more efficient
+
+First Normal Form (1NF) - every table has a primary key (and is atomic)
+Second Normal Form - 
+Third Normal Form -
+
+DQL - Data Query Language
+    is a set of key words and functionality that help us create queries and help us retrieve data from our databases
