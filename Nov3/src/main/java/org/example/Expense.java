@@ -20,6 +20,7 @@ public class Expense {
 
     public int getId() { return this.id; }
     public double getValue() { return this.value; }
+    public String getMerchant() { return this.merchant; }
 
     //Methods
     @Override
@@ -31,6 +32,5 @@ public class Expense {
     public String toCSV (){
         return this.id + ", " + this.date + ", " + this.value + ", " + this.merchant;
     }
-
 
 }
