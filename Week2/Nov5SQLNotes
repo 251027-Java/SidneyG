@@ -69,7 +69,7 @@ First Normal Form (1NF) - every table has a primary key (and is atomic)
 3NF - Nothing But The Key
 
 | Vienna | NJ | 07880 | wouldn't depend on unique composite key,
-7 Water St,it is violating 2NF where every peice of data depends on the first key
+7 Water St,it is violating 2NF where every piece of data depends on the first key
 I would take them out and have them depend on the composite key
 
 3NF - Nothing But The Key - We want to try to get to 3rd Normal Form
@@ -107,3 +107,66 @@ Third Normal Form -
 
 DQL - Data Query Language
     is a set of key words and functionality that help us create queries and help us retrieve data from our databases
+
+
+When we use a virtual machine it takes up a HUGE chunk of CPU and Memory
+Docker lets us handle that virtualization in a specific way where we dont have to devote so much space to CPU and Memory
+    We are giving a smaller footprint of resources
+An image is a definition of how to create a container
+    it can contain the application and some environment
+    I can take an app that is only meant to run on linux and wrap it in docker and then run it on Mac
+Docker wraps around postgres database and provides CPU and memory
+    will combine resources that your database can use and the operating system doesnt care. It will look directly at Docker
+    Gives us abstraction. A layered approach. This is just encapsulation
+If you can run Docker, you can run database
+
+DQL - Data Query Language - Retrieve and Query (MAINLY WHAT WE ARE GOING TO BE USING)
+DML - Data Manip. Language - Add/Remove
+DDL - Data Definition Lang - Control
+DCL - Data Control Lang - Access. Who is allowed to change data
+
+
+NOV 6th-
+Data Definition Language
+-Create
+-Alter
+-Drop
+        -Table
+        -View
+        -Constraint
+        -Sequence
+        -"Cascade" - if this field modifies/gets deleted, you an remove the entries that were connected to it
+
+
+How to make a database more readable for a non-tech person
+-have a diagram
+    nodes and decisions
+-ERD (Entity Relationship Diagram)
+    need a way to demonstrate one to one, many to many
+    - use crows-foot notation
+    - *.1 = many to one, 1.* = one to many
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
