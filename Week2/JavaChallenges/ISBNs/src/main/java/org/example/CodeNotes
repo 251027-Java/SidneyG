@@ -1,0 +1,41 @@
+package org.example;
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create scanner
+        Scanner scanner = new Scanner(System.in);
+        // Take in user input
+        int N = scanner.nextInt();
+        // Create new array that has the same amount of indices as our user input
+        int[] isbns = new int[N];
+        // Loop through all indices of the array
+            // Take in all inputs from user until you reach num given by user
+            // and assign to specific indices
+        for ( int i = 0; i < N; i++) {
+            isbns[i] = scanner.nextInt();
+        }
+        // create new variable that is the ISBN that we want to find
+        int target_ISBN = scanner.nextInt();
+        // If it is greater than the biggest ISBN in the list return the new index it would be
+        if ( target_ISBN > isbns[N-1]) {
+            System.out.println(N);
+            return;
+        }
+        // for all indices check if target it less than or equal to the ISBN in the list
+        for (int i = 0; i < N; i++) {
+            // If the target is less than or equal to the index we are comparing
+                // return the index
+            if (target_ISBN <= isbns[i]) {
+                System.out.println(i);
+                return;
+            }
+        }
+
+    }
+}
+
+
+
+// solution given during training

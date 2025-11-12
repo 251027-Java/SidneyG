@@ -1,0 +1,9 @@
+// Take input String lights
+// Take input int minutes
+// Get length of String
+    // save length of String
+// Loop through charAt(i) and save to String[] newLights[i]
+// For how many minutes we are given use minutes = minutes%3
+// For every index of newLights[i]
+    // Show start and if R
+        switch case minutes = 1  newLights[i] =

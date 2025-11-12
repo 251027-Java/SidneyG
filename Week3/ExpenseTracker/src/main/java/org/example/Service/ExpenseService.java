@@ -6,18 +6,16 @@ import org.example.Repository.IRepository;
 import java.util.Date;
 import java.util.List;
 
-
 public class ExpenseService {
-    //Fields
+    // Fields
     private IRepository repo;
-    //private List<Expense> expenses;
 
-    //Constructors
+    // Constructor
     public ExpenseService(IRepository repository) {
         this.repo = repository;
     }
 
-    //Methods
+    // Methods
     public Expense createNewExpense(int id, double value, String merchant){
         if (repo.readExpense(id) != null){
             return null;
@@ -28,15 +26,11 @@ public class ExpenseService {
     }
 
     public Expense getExpense(int id){
-        return repo.readExpense(id);
-    }
-
-    public void updateExpense(Expense expense){
-        repo.updateExpense(expense);
+       return repo.readExpense(id);
     }
 
     public boolean deleteExpense(int id){
-        if (repo.readExpense(id) != null){
+        if (repo.readExpense(id) == null){
             return false;
         }
         repo.deleteExpense(id);
@@ -50,10 +44,9 @@ public class ExpenseService {
     public void sumExpenses(){
         List<Expense> expenses = repo.loadExpenses();
         double sum = 0;
-        for (Expense e : expenses){
+        for (Expense e : expenses ){
             sum += e.getValue();
         }
         System.out.println(sum);
     }
-
 }

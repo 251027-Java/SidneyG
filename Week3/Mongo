@@ -1,0 +1,20 @@
+What is Mongo?
+We can gather data from across the database and query for the things it is related to
+If we take an object and save it to a database, we had to have structure, and write a sql statement that accepts here is the object and then insert them into the table as a value
+if mongo does not leverage tables, it stores it as another form of data
+instead of keeping track of the data, we are looking for another kind of conversion
+Mongo saves the data in BSON
+    a binary script - Binary JSON
+We will have tools that we dont have to manage the translation
+When we store objects in a Mongo DB how do we identify it
+    How do I know where I put a particular resource?
+
+We connot use JDBC when using Mongo
+    We need a Mongoclient. We need to add a new dependancy to use this
+
+SQL is a spreadsheet
+Mongo is a file cabinet
+
+You can put two dissimilar things (file and folder) into mongo and it will not care
+
+Mongo is NoSQL
