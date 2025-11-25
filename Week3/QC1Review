@@ -1,0 +1,7 @@
+Application Program Interface
+Reflection API- helps us list out and lets us interact with methods that we dont know from a class
+    we can run reflection and find out what the method can do
+    it tells the rest of your application what it can do
+
+TCL/TDL
+
