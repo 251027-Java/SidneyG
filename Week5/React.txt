@@ -1,0 +1,50 @@
+React lets us host
+NPM provides access to tools
+VITE lets us start writing code and transpiles it into something we can use
+    npm create vite@latest expense-tracker
+    use arrow keys in terminal
+    select React
+    then javascript
+    do not use rolldown
+    do not select npm and start now
+
+cd expense-tracker
+npm install
+    will create node_modules folder
+    ignore node_modules folder so that it does not get uploaded to git
+    we get all the dependancies we need
+npm run dev
+    we can open http://localhost:5173
+
+App.jsx- the application is being ran here
+    we have the funation app and this is how we make it available to ,available
+    the export is what makes it available to the other files
+    the css selector will be adding function to the class name
+    jsx will be similar to html
+
+During our walkthrough we fully deleted the app.css file
+then deleted all conten from inside index.css
+
+tailwind will help us write css
+    if we add classes to jsx (create element)
+    tailwind will help us create the class for me
+
+we will install tailwind using npm
+npm
+npm install tailwindcss @tailwindcss/vite
+open vite.config.js
+    add tailwindcss() to plugins
+    import tailwindcss from '@tailwindcss/vite'
+
+go to index.css
+    @import "tailwindcss";
+now we can start adding to App.jsx
+
+delete app.css import from app.jsx file
+
+make sure to be saiving files constantly
+
+
+add component folder to src folder
+added ExpenseItem.jsx to this folder
+import ExpnseItem from './component/ExpenseItem' added to app.jsx

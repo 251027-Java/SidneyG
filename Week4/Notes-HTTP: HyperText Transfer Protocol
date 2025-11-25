@@ -1,0 +1,48 @@
+HTTP: HyperText Transfer Protocol
+
+Used to facilitate communication to SERVERS - anything (application/process/program) that is waiting and listening for a request
+
+Client - whatver thing (person, application, process) that makes the request, and starts the converstaion
+
+HTTP Requests - HEADER and BODY
+
+HEADER - Meta-data (the data about your message)
+BODY - The actual message
+
+HTTP Methods/HTTP Verbs - (S = Safe) (I = Idompotent) (H = HEAD) (B = BODY)
+GET         - (S/I)     - (H)   - Place a request for a resource
+POST        - (US/NI)   - (H/B) - Create (new content) a resource from the content of the body
+PUT         - (US/I)    - (H/B) - Update (replace content) a resource from the content of the the body
+PATCH       - (US/I)    - (H/B) - Partial Update (ammending content) a resource from the content of the body
+DELETE      - (US/I)    - (H)   - Request that a resource be destroyed
+OPTIONS     - (S/I)     - (H)   - Request a list of the types of requests that a server can handle/respond
+HEAD        - (S/I)     - (H)   - Requesting only the meta-data (header) of the response (as if it were a GET request)
+
+HTTP Response Codes:
+1xx - Informational response
+2xx - Successful request/operation
+3xx - Redirection (mail-forwarding)
+4xx - Client side errors (the system placing the request)
+5xx - Server side errors (the appliction answering the request)
+
+
+
+Tuesday:
+HTML -  Hyper Text Markup Language -    adds structure
+CSS -   Cascading Style Sheets -        gives style
+JS -    JavaScript -                    functionality (gives a brain)
+
+
+
+Document Object Model
+
+div - hels hold everything together
+
+CSS Selectors-
+    patterns used t select and style specific HTML elements on a web page. They are fundamental part of CSS rulesets, allowing developers to target elements based on vaious criteria, including their types, attributes, and position within the document
+
+Content-
+Padding-
+Border-
+Margin-
+
