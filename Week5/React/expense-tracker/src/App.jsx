@@ -1,69 +1,149 @@
-import { useState } from 'react'
-import ExpenseForm from './component/ExpenseForm'
-import ExpenseList from './component/Expenses/ExpenseList'
-import ExpenseFilter from './component/Expenses/ExpenseFilter'
-
-const Dummy_Expenses = [
-  {
-    id: "e1",
-    title: "Testing",
-    amount: "123",
-    date: new Date("2023, 1, 1"),
-  },
-  {
-    id: "e2",
-    title: "Testing2",
-    amount: "234",
-    date: new Date("2023, 1, 1"),
-  },
-  {
-    id: "e3",
-    title: "Testing3",
-    amount: "345",
-    date: new Date(2023, 0, 1),
-  },
-  {
-    id: "e4",
-    title: "Testing4",
-    amount: "456",
-    date: new Date("2023, 3, 1"),
-  },
-]
+import { useState, useEffect } from 'react'
+import ExpenseForm from './components/ExpenseForm'
+import ExpenseList from './components/Expenses/ExpenseList'
+import ExpenseFilter from './components/Expenses/ExpenseFilter'
+import ReportSummary from './components/ReportSummary'
+import SavedReportsList from './components/SavedReportsList'
+import ExpensesService from './services/ExpensesService';
 
 function App() {
 
-  const [expenses, setExpenses] = useState(Dummy_Expenses);
+  const [expenses, setExpenses] = useState([]);
   const [filteredYear, setFilteredYear] = useState('2023');
+  const [selectedIds, setSelectedIds] = useState([]);
+  const [savedReports, setSavedReports] = useState(() => {
+    try {
+      const savedReports = localStorage.getItem('savedReports');
+      return savedReports ? JSON.parse(savedReports) : [];
+    } catch (error) {
+      console.warn("failed to retrieve from local storage", error);
+      return [];
+    }
+  });
 
-  const addExpenseHandler = (expense) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('savedReports', JSON.stringify(savedReports));
+  }, [savedReports]);
+
+  useEffect(() => {
+  }, [savedReports]);
+
+  useEffect(() => {
+    async function fetchExpenses() {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+      const data = await ExpensesService.getAll();
+      //console.log('Fetched data from server:', data);
+      const transformedData = data.map(item => ({
+        ...item,
+        date: new Date(item.date)
+      }));
+      //console.log('Transformed data:', transformedData);
+
+      setExpenses(transformedData);
+      } catch (error) {
+        console.warn("failed to retrieve from server!", error);
+        setError(error.message);
+        // default?
+      } finally {
+        console.log("finally");
+        setIsLoading(false)
+      }
+    }
+    fetchExpenses();
+  }, []);
+
+  const deleteReportHandler = (id) => { // pass in the id to remove/delete
+    setSavedReports((prevReports) => prevReports.filter(report => report.id !== id)); 
+    // remove the report from the saved reports
+  };
+
+  const addExpenseHandler = async (expense) => {
+    setIsLoading(true);
+    setError(null);
+
+    try{
+      // run the post request, getting back the json of the new expense (with ID!)
+      const newExpenseData = await ExpensesService.postExpense(expense);
+
+      // unpack the jason, and add the date to the new expense
+      const expenseWithDate = {
+        ...newExpenseData,
+        date: new Date(newExpenseData.date)
+      }
+
+      // add the new expense to the list of all the expenses
+      setExpenses((prev) => [expenseWithDate, ...prev]);
+
+    } catch (error) {
+      setError('Failed to save expense! ' + error.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+
+  /* const addExpenseHandler = (expense) => {
     const expenseWithId = { ...expense, id: Math.random().toString() }
 
     setExpenses((prevExpenses) => {
       return [expenseWithId, ...prevExpenses] //pervious expenses is an array/collection
       // [ expense, old expense 1, old expense 2, old expense 3 ]
-      return [expenseWithId, prevExpenses] //
+      // return [expenseWithId, prevExpenses] //
       //  [ expense, Array of Expenses ]
     })
-  };
+  }; */
 
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
+  };
+
+  const toggleExpenseHandler = (id) => {
+    setSelectedIds((prevSelected) => {
+      if (prevSelected.includes(id)) {
+        return prevSelected.filter((selectedId) => selectedId !== id);
+      } else {
+        return [...prevSelected, id];
+      }
+    });
+  };
+
+  const saveReportHandler = (report) => {
+    setSavedReports(prevReports => [...prevReports, report]); // adds a new report to the saved reports
+    setSelectedIds([]); // clears all of the checkboxes when we create a new report
   };
 
   const filteredExpenses = expenses.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  const reportExpenses = expenses.filter((expense) => { return selectedIds.includes(expense.id); });
+
   return (
     <div className=" min-h-screen bg-slate-900 px-4 font-sans">
       <h1 className=" text-3xl text-slate-100 font-bold"> Testing testing, 123!</h1>
+
       <ExpenseFilter
-        selected={ filteredYear }
-        onChangeFilter={ filterChangeHandler } />
+        selected={filteredYear}
+        onChangeFilter={filterChangeHandler} />
       <ExpenseForm
-        onSaveExpenseData={ addExpenseHandler } />
+        onSaveExpenseData={addExpenseHandler} />
       <ExpenseList
-        items={ filteredExpenses } />
+        items={filteredExpenses}
+        selectedIds={selectedIds}
+        onToggleItem={toggleExpenseHandler} />
+      <ReportSummary
+        selectedExpenses={reportExpenses}
+        onSave={saveReportHandler}
+        closeHandler={ () =>setSelectedIds([]) } />
+      <SavedReportsList
+        reports={savedReports} 
+        onDelete={deleteReportHandler}/>
     </div>
   )
 }

@@ -48,3 +48,16 @@ make sure to be saiving files constantly
 add component folder to src folder
 added ExpenseItem.jsx to this folder
 import ExpnseItem from './component/ExpenseItem' added to app.jsx
+
+
+in order to run an app when your pulling since node_modeules werent there
+use: npm install
+npm clean install
+    or npm ci
+
+
+create loca api using
+    json-server ./expenses.json -p 3000
+http://localhost:3000/expenses
+
+(if not working we will use npm install -g json-server)
