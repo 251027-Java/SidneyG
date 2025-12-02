@@ -1,0 +1,141 @@
+Java Console    --(HTTP)->     App?                   ->       API          ->       API          ->       API
+^                               ^
+consumer client -               Provider Server -
+web UI console App              API
+               ^API
+
+Spring - a framework that will give us an easier time building an API or client
+    Will give us the power to change how we deal with data
+
+To start a spring project -
+    We dont start from scratch
+    we have a tool that builds everything for us
+    using - start.spring.io
+        maven, Java, 4.0.0
+        jar, properties, 25
+
+http://localhost:8080/api/hello
+http = Protocol
+localhost = Server
+808 = Port
+/api/hello = route
+
+/api/hello/?key=value
+
+
+user -(http)-> controler -> service -> repo -> DB
+controller - http translate - DTO Data Tranfer Object
+Service - bus. lage - Classes
+Repo - java db - DAO data access Object
+
+
+
+P1- Second Verse, Same As The First
+
+- will present on December 12/12
+- This is a team project, but your team needs to present their own work!
+- this project will be FULL STACK, including a d/persistance layer, a server/api, and web frintend/SPA.
+- Your presentation should include demonstration of your application running.
+- Your presentation shoul dbe between 10-15 minutes, at 20 we=re cutting you off!
+
+- SPA must be either React or Angular (as determined by your training stack)
+-- Must include routhing to at least 2 seperate pages/views
+-- Must include HTTP requests to your API
+-- Must include at least 5 different components
+-- Must demonstrate two-way binding
+
+- your backend must expose a RESTful API
+-- Your backend. ust use Sprinf Data JPA for database interactions.
+-- Your backend must demonstrate separating concerns through application layers,
+-- Your backend must feature at least two custom classes
+-- Your backend must feature verbose exeption handling to prevent unexpected crashing.
+-- Your backend API must include at least 50% overall line coverage with Junit testing.
+
+- Your database must be a PostgreSQL instance running in a Docker container.
+-- Must be in 3NF
+-- Must have at least 5 tables
+-- must have at least 1 Many-to-Many relationship
+
+- Your project must be kept in a Git repository that is part of the cohort Organization.
+-- Your repo should demonstrate best practices with branching (no commits directly to main!)
+-- Your repo should include a README.md that details how to start and run your full stack app.
+    should be able to learn how to get the app up and running and doing its thing
+-- You should include a Description file
+--- Describe the app
+--- Include the user stories that your project fulfills (as a _ I want to _ so that I can _)
+--- Include a wireframe for the frontend
+--- Include the ERD for your databasee
+--- Include endpoint documentation for your API
+
+
+
+-Pages
+    - Main page
+    - 2 pages branching from main page
+    - README
+-Testing
+    - 50% Junit testing
+    - User stories
+- Database
+    - PostgreSQL in Docker
+    - 3NF
+    - one Many-to-Many
+
+S - Single Responsibility Principle
+O - Open/Closed Principle (OCP)
+L - Liskov Substitution Principle (LSP)
+I - Interface Segregation Principle (ISP)
+D - Dependency Inversio Principle (DIP)
+
+erDiagram
+    Artist ||--o{ Song : "primary_artist_of"
+    Listeners ||--o{ Playlists : "owns"
+    Listeners ||--o{ History : "has_plays"
+    Song ||--o{ History : "were_played"
+    Playlists ||--o{ PlaylistSong : "has_tracks"
+    Song ||--o{ PlaylistSong : "is_in"
+
+    Artist {
+        string artist_id PK
+        string name
+        string href
+    }
+
+    Song {
+        string song_id PK
+        string name
+        int    duration_ms
+        string artist_id FK 
+        string href
+    }
+
+    Listeners {
+        string listener_id PK
+        string display_name
+        string email
+        string country
+        string href
+    }
+
+    Playlists {
+        string playlist_id PK
+        string name
+        string owner_id FK
+        boolean is_public
+        string href
+    }
+
+    PlaylistSong {
+        int    playlist_song_id PK
+        string playlist_id FK
+        string song_id FK
+        int    track_order
+        datetime added_at
+    }
+
+    History {
+        int    history_id PK
+        string listener_id FK
+        string song_id FK
+        datetime played_at
+    }
