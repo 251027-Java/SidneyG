@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
+import {Routes, Route, Link, useNavigate } from 'react-router-dom';
 import ExpenseForm from './components/ExpenseForm'
 import ExpenseList from './components/Expenses/ExpenseList'
 import ExpenseFilter from './components/Expenses/ExpenseFilter'
 import ReportSummary from './components/ReportSummary'
 import SavedReportsList from './components/SavedReportsList'
 import ExpensesService from './services/ExpensesService';
+import Navigation from './components/pages/Navigation';
 
 function App() {
+  const navigate = useNavigate();
+
 
   const [expenses, setExpenses] = useState([]);
   const [filteredYear, setFilteredYear] = useState('2023');
@@ -125,25 +129,29 @@ function App() {
   const reportExpenses = expenses.filter((expense) => { return selectedIds.includes(expense.id); });
 
   return (
-    <div className=" min-h-screen bg-slate-900 px-4 font-sans">
-      <h1 className=" text-3xl text-slate-100 font-bold"> Testing testing, 123!</h1>
+    <div>
+    <Navigation/>
 
-      <ExpenseFilter
-        selected={filteredYear}
-        onChangeFilter={filterChangeHandler} />
-      <ExpenseForm
-        onSaveExpenseData={addExpenseHandler} />
-      <ExpenseList
-        items={filteredExpenses}
-        selectedIds={selectedIds}
-        onToggleItem={toggleExpenseHandler} />
-      <ReportSummary
-        selectedExpenses={reportExpenses}
-        onSave={saveReportHandler}
-        closeHandler={ () =>setSelectedIds([]) } />
-      <SavedReportsList
-        reports={savedReports} 
-        onDelete={deleteReportHandler}/>
+    <Routes>
+      <Route
+      path= "/dashboard"
+      element= { <expensesDashboard /> }
+      />
+      <Route
+      path= "/reports"
+      element= {<savedReports/>}
+                  savedReports={savedReports}
+                  deleteReportHandler={deleteReportHandler}
+      />
+      <Route
+      path= "/"
+      element= {
+      <div>
+        <Link to = "/dashboard">Go To Dashboard</Link>
+      </div>}
+      />
+      
+    </Routes>
     </div>
   )
 }

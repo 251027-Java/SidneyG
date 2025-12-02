@@ -61,3 +61,12 @@ create loca api using
 http://localhost:3000/expenses
 
 (if not working we will use npm install -g json-server)
+
+npm install react-router-dom
+
+in package-lock.json
+
+QC3:
+prepping QC style questions
+HTML CSS javascript
+react and tailwindcss

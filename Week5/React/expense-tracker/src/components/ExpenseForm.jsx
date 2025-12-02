@@ -25,14 +25,19 @@ const ExpenseForm = (prop) => {
     const submitHandler = (event) => {
         event.preventDefault();
 
+        // Convert date to ISO format with default time T00:00:00.000
+        const dateWithTime = enteredDate ? `${enteredDate}T00:00:00.000` : new Date().toISOString();
+        //new Date(enteredDate + 'T00:00:00');
+
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
-            date: new Date(enteredDate)
+            amount: +enteredAmount,  // convert to number
+            date: dateWithTime  // send as "2023-01-15T00:00:00.000"
         };
         console.log(expenseData);
 
         prop.onSaveExpenseData(expenseData);
+
     }
 
     return (

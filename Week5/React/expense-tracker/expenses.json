@@ -1,28 +1,58 @@
 {
-    "expenses":[
-        {
-            "id": "e1",
-            "title": "Testing",
-            "amount": 123,
-            "date": "2023, 01, 01"
-        },
-        {
-            "id": "e2",
-            "title": "Testing2",
-            "amount": 234,
-            "date": "2023, 01, 01"
-        },
-        {
-            "id": "e3",
-            "title": "Testing3",
-            "amount": 345,
-            "date": "2023, 01, 01"
-        },
-        {
-            "id": "e4",
-            "title": "Testing4",
-            "amount": 456,
-            "date": "2023, 04, 01"
-        }
-    ]
+  "expenses": [
+    {
+      "id": "e1",
+      "title": "Testing",
+      "amount": 123,
+      "date": "2023, 01, 01"
+    },
+    {
+      "id": "e2",
+      "title": "Testing2",
+      "amount": 234,
+      "date": "2023, 01, 01"
+    },
+    {
+      "id": "e3",
+      "title": "Testing3",
+      "amount": 345,
+      "date": "2023, 01, 01"
+    },
+    {
+      "id": "e4",
+      "title": "Testing4",
+      "amount": 456,
+      "date": "2023, 04, 01"
+    },
+    {
+      "id": "150e",
+      "title": "correct date",
+      "amount": 999,
+      "date": "2025-11-26T00:00:00.000"
+    },
+    {
+      "id": "2ff6",
+      "title": "final test",
+      "amount": 845,
+      "date": "2025-11-26T00:00:00.000"
+    },
+    {
+      "id": "f381",
+      "title": "final test",
+      "amount": 845,
+      "date": null
+    },
+    {
+      "id": "9b3f",
+      "title": "dummy",
+      "amount": 456,
+      "date": null
+    },
+    {
+      "id": "ff56",
+      "title": "test",
+      "amount": 213,
+      "date": "2025-11-26T00:00:00.000"
+    }
+  ]
 }

@@ -19,6 +19,14 @@ const ExpensesService = {
         if(!response.ok) throw new Error('Failed to save expense!');
         return response.json();
     },
+
+    async deleteExpense(id){
+        const response = await fetch(`${this.baseUrl}/${id}`, {
+            method: 'DELETE'
+        });
+        if(!response.ok) throw new Error('Failed to delete expense!');
+        return response.json();
+    }
 };
 
 export default ExpensesService;

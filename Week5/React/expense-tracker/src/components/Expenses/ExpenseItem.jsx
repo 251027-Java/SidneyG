@@ -15,6 +15,9 @@ const ExpenseItem = ({ id, title, amount, date, isSelected, onToggle }) => {
             </div>
             <h1>{title}</h1>
             <h2>{amount}</h2>
+            <button
+            onClick = {()} =>  </div>
+            >X</button>
         </div>
     );
 };

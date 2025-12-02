@@ -15,7 +15,8 @@ const ExpenseList = ({ items, selectedIds, onToggleItem }) => {
                     amount = {expense.amount}
                     date = {expense.date} 
                     isSelected = {selectedIds.includes(expense.id)}
-                    onToggle= {onToggleItem}/>
+                    onToggle= {onToggleItem}
+                    onDelete = {onDeleteItem}/>
             )) }
         </div>
     );
